@@ -5,6 +5,7 @@ const Op = db.Sequelize.Op;
 
 exports.calculate = async (req, res) => {
     try {
+        
         const totalContacts = await db.contacts.count();
         const totalPhones = await db.phones.count();
         const latestContact = await db.contacts.findOne({
