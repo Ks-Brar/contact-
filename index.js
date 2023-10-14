@@ -1,4 +1,9 @@
 const dbConfig = require("../config/db.config.js");
+db.contacts.hasMany(db.phones, { as: "phones", foreignKey: "contactId" });
+db.phones.belongsTo(db.contacts, {
+    foreignKey: "contactId",
+    as: "contact",
+});
 
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
